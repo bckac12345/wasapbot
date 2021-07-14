@@ -219,8 +219,15 @@
       // (2) or respond to particular text/command
       // --------------------------------------------------------------------------------------
 
-           if ($body == "!ping") {
-             $respon = "[group] pong! $name";
+           if ($body == "!server") {
+             $respon = "[group] $status = json_decode(file_get_contents('https://api.mcsrvstat.us/bedrock/2/play.lunaticmc.xyz'));
+
+//Show the version
+echo $status->version;
+
+//Show a list of players
+foreach ($status->players->list as $player) {
+	echo $player.'<br />'";
            }
            elseif ($body == "!help") {
              $respon = "[group] can I help you $name? 😎";
